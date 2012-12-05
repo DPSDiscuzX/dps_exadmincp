@@ -1,0 +1,2 @@
+<!--{block return}--><!--{loop $xmlnslist $xmlns $value}--><!--{if $xmlnslist[$xmlns]['prefix'] != '' && $xmlnslist[$xmlns]['available']}--> xmlns:{$xmlnslist[$xmlns]['prefix']}="{$xmlnslist[$xmlns]['href']}"<!--{/if}--><!--{/loop}--><!--{/block}-->
+

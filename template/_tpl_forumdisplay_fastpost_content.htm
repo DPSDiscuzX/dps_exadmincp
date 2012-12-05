@@ -1,0 +1,11 @@
+<!--{block return}-->
+<script type="text/javascript">
+EleTN("div", EleId("f_pst"))[1].style.display = "none";
+EleTN("div", EleId("f_pst"))[0].innerHTML = "<a href=\"javascript:;\">"+EleTN("div", EleId("f_pst"))[0].innerHTML+"</a>";
+//alert(EleTN("div", EleId("f_pst"))[0].firstChild.nodeName)
+EleTN("div", EleId("f_pst"))[0].firstChild.onclick=function(){
+	var p=EleTN("div", EleId("f_pst"))[1];
+	p.style.display=(p.style.display==''?'none':'');
+};
+</script>
+<!--{/block}-->
