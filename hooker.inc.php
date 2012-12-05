@@ -22,6 +22,7 @@ $identifier = "dps_exadmincp";
 $msg = '&#20026;&#20102;&#27491;&#24120;&#20351;&#29992;&#27492;&#25554;&#20214;&#65292;&#24744;&#21487;
 &#33021;&#36824;&#38656;&#35201;&#19978;&#20256;&#25110;&#20462;&#25913;&#30456;&#24212;&#30340;&#25991;
 &#20214;&#25110;&#27169;&#26495;&#65292;&#35814;&#24773;&#35831;&#26597;&#30475;&#26412;&#25554;&#20214;&#30340;&#23433;&#35013;&#35828;&#26126;';
+/*检查文件与内容存在与否*/
 function xm_file_content_exists($file, $message) {
 	if(file_exists($file)) {
 		$content = file_get_contents($file);
@@ -33,6 +34,7 @@ function xm_file_content_exists($file, $message) {
 	}
 	return false;
 }
+/*内容替换*/
 function xm_file_replace($file, $pattern, $replace, $hooker, $limit = -1) {
 	if(file_exists($file)) {
 		$content = file_get_contents($file);
@@ -153,9 +155,20 @@ EOF;
 
 	showtablefooter();
 	showformfooter();
-} else if(submitcheck('inserthook')){
+
+
+
+
+
+} else if(submitcheck('inserthook')){/*按"插入嵌入点"按钮后处理*/
+
+
 	$_CA = C::t('common_setting')->fetch_all(null);
 	$_CA['templatehooker'] = (array)dunserialize($_CA['templatehooker']);
+
+
+
+
 
 	foreach($_GET['inserthook'] as $inserthook => $value){
 		$templatehooker = $_CA['templatehooker'][$inserthook];
@@ -201,6 +214,9 @@ EOF;
 	}
 	print_r($_CA['templatehooker']['<p><a>Powered by</a> <strong>']);
 	*/
+
+
+
 } else {
 
 	$settingnew = $_GET['settingnew'];
