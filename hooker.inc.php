@@ -241,7 +241,7 @@ EOF;
 				'replacement' => /*dhtmlspecialchars($_GET['replacement'][$templatehookerid])*/ht($_GET['replacement'][$templatehookerid]),
 			);
 			//C::t('home_click')->update($id, $updatearr);
-			$settingnew['templatehooker'][md5(ht($templatehookerid))] = $updatearr;
+			$settingnew['templatehooker'][md5(ht($_GET['hooker'][$templatehookerid]))] = $updatearr;
 		}
 	}
 	if(is_array($_GET['delete'])) {
