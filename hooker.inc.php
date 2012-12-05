@@ -68,18 +68,18 @@ if(!submitcheck('settingsubmit') && !submitcheck('inserthook')) {
 
 
 
-	if(true){
-		$tableClasses = array('class="td25"', 'class="td29"', 'class="td29"', 'class="td29"', 'class="td29"', 'class="td31"');
 
-		showtablerow('', $tableClasses, array(
-			'',
-			cplang('嵌入点($hooker)'),
-			cplang('嵌入点所在文件($file)'),
-			cplang('匹配规则($pattern)'),
-			cplang('替换($replacement)'),
-			'',
-		));
-		print <<<EOF
+	$tableClasses = array('class="td25"', 'class="td29"', 'class="td29"', 'class="td29"', 'class="td29"', 'class="td31"');
+
+	showtablerow('', $tableClasses, array(
+		'',
+		cplang('嵌入点($hooker)'),
+		cplang('嵌入点所在文件($file)'),
+		cplang('匹配规则($pattern)'),
+		cplang('替换($replacement)'),
+		'',
+	));
+	print <<<EOF
 <script type="text/JavaScript">
 	var rowtypedata = [
 		[
@@ -96,51 +96,49 @@ EOF;
 
 
 
-		$_CA['templatehooker'] = (array)dunserialize($_CA['templatehooker']);
-		//echo sizeof($_CA['templatehooker']);
-		foreach($_CA['templatehooker'] as $templatehooker) {
+	$_CA['templatehooker'] = (array)dunserialize($_CA['templatehooker']);
+	//echo sizeof($_CA['templatehooker']);
+	foreach($_CA['templatehooker'] as $templatehooker) {
 
-			$str = '';
-			$file = DISCUZ_ROOT.$_G['style']['tpldir'].'/'.$templatehooker['file'];
+		$str = '';
+		$file = DISCUZ_ROOT.$_G['style']['tpldir'].'/'.$templatehooker['file'];
+		if(!file_exists($file)){
+			$file = DISCUZ_ROOT.'./template/default/'.$templatehooker['file'];
 			if(!file_exists($file)){
-				$file = DISCUZ_ROOT.'./template/default/'.$templatehooker['file'];
-				if(!file_exists($file)){
-					$str = '找不到对应模板文件';
-				}
-			}
-			if($str==''){
-				$hooker = html_entity_decode($templatehooker['hooker'], ENT_QUOTES, 'UTF-8');
-				$pattern = html_entity_decode($templatehooker['pattern'], ENT_QUOTES, 'UTF-8');
-				$replacement = html_entity_decode($templatehooker['replacement'], ENT_QUOTES, 'UTF-8');
-				$hooker_exist = xm_file_content_exists($file, $hooker);
-				$tpd = htmlentities($templatehooker['templatehookerid'], ENT_QUOTES, 'UTF-8');
-				if($hooker_exist){
-					$str = '<span style="color:#999999;">找到嵌入点</span>';
-				} else {
-					$flag_exist = xm_file_content_exists($file, $pattern);
-					if($flag_exist){
-						$str = "<input type=\"submit\" name=\"inserthook[$tpd]\" value=\"插入嵌入点\" />";
-						//$result = xm_file_replace($file, $pattern, $replacement, $hooker);
-					} else {
-						$str = '找不到参照点';
-					}
-				}
-			}
-			if($templatehooker['hooker'] !== ''){
-				showtablerow('', $tableClasses, array(
-					"<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$templatehooker[templatehookerid]\">",
-					"<input type=\"text\" class=\"txt\" size=\"20\" name=\"hooker[$templatehooker[templatehookerid]]\" value=\"$templatehooker[hooker]\">",
-					"<input type=\"text\" class=\"txt\" size=\"20\" name=\"file[$templatehooker[templatehookerid]]\" value=\"$templatehooker[file]\" >",
-					"<input type=\"text\" class=\"txt\" size=\"20\" name=\"pattern[$templatehooker[templatehookerid]]\" value=\"$templatehooker[pattern]\">",
-					"<input type=\"text\" class=\"txt\" size=\"20\" name=\"replacement[$templatehooker[templatehookerid]]\" value=\"$templatehooker[replacement]\">",
-					$str
-				));
+				$str = '找不到对应模板文件';
 			}
 		}
-		echo '<tr><td></td><td colspan="8"><div><a href="###" onclick="addrow(this, 0)" class="addtr">'.'添加嵌入点'.'</a></div></td></tr>';
-	} else {
-		echo "找不到";
+		if($str==''){
+			$hooker = html_entity_decode($templatehooker['hooker'], ENT_QUOTES, 'UTF-8');
+			$pattern = html_entity_decode($templatehooker['pattern'], ENT_QUOTES, 'UTF-8');
+			$replacement = html_entity_decode($templatehooker['replacement'], ENT_QUOTES, 'UTF-8');
+			$hooker_exist = xm_file_content_exists($file, $hooker);
+			$tpd = htmlentities($templatehooker['templatehookerid'], ENT_QUOTES, 'UTF-8');
+			if($hooker_exist){
+				$str = '<span style="color:#999999;">找到嵌入点</span>';
+			} else {
+				$flag_exist = xm_file_content_exists($file, $pattern);
+				if($flag_exist){
+					$str = "<input type=\"submit\" name=\"inserthook[$tpd]\" value=\"插入嵌入点\" />";
+					//$result = xm_file_replace($file, $pattern, $replacement, $hooker);
+				} else {
+					$str = '找不到参照点';
+				}
+			}
+		}
+		if($templatehooker['hooker'] !== ''){
+			showtablerow('', $tableClasses, array(
+				"<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$templatehooker[templatehookerid]\">",
+				"<input type=\"text\" class=\"txt\" size=\"20\" name=\"hooker[$templatehooker[templatehookerid]]\" value=\"$templatehooker[hooker]\">",
+				"<input type=\"text\" class=\"txt\" size=\"20\" name=\"file[$templatehooker[templatehookerid]]\" value=\"$templatehooker[file]\" >",
+				"<input type=\"text\" class=\"txt\" size=\"20\" name=\"pattern[$templatehooker[templatehookerid]]\" value=\"$templatehooker[pattern]\">",
+				"<input type=\"text\" class=\"txt\" size=\"20\" name=\"replacement[$templatehooker[templatehookerid]]\" value=\"$templatehooker[replacement]\">",
+				$str
+			));
+		}
 	}
+	echo '<tr><td></td><td colspan="8"><div><a href="###" onclick="addrow(this, 0)" class="addtr">'.'添加嵌入点'.'</a></div></td></tr>';
+
 
 
 //	foreach($_G['cache']['plugin'] as $plugin => $value){
