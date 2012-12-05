@@ -1,6 +1,6 @@
 <?php
 /*
-        [DISCUZ!] addbybishop/hooker.inc.php - 用正则表达式管理嵌入点和非官方修改
+        [DISCUZ!] dps_exadmincp/hooker.inc.php - 用正则表达式管理嵌入点和非官方修改
 
         Version: 0.01
         Author: Bovvic(671064591@qq.com)
@@ -77,20 +77,20 @@ if(!submitcheck('settingsubmit') && !submitcheck('inserthook')) {
 			cplang('替换($replacement)'),
 			'',
 		));
-		print "
-<script type=\"text/JavaScript\">
+		print <<<EOF
+<script type="text/JavaScript">
 	var rowtypedata = [
 		[
 			[1,'', 'td25'],
-			[1,'<input type=\"text\" class=\"txt\" name=\"newhooker[]\" size=\"20\">', 'td29'],
-			[1,'<input type=\"text\" class=\"txt\" name=\"newfile[]\" size=\"20\">', 'td29'],
-			[1,'<input type=\"text\" class=\"txt\" name=\"newpattern[]\" size=\"20\">', 'td29'],
-			[1,'<input type=\"text\" class=\"txt\" name=\"newreplacement[]\" size=\"20\">', 'td29'],
+			[1,'<input type="text" class="txt" name="newhooker[]" size="20">', 'td29'],
+			[1,'<input type="text" class="txt" name="newfile[]" size="20">', 'td29'],
+			[1,'<input type="text" class="txt" name="newpattern[]" size="20">', 'td29'],
+			[1,'<input type="text" class="txt" name="newreplacement[]" size="20">', 'td29'],
 			[1,'', 'td31'],
 		]
 	];
 </script>"
-		;
+EOF;
 
 
 
