@@ -11,4 +11,7 @@ if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
 	exit('Access Denied');
 }
 
+loadcache('plugin');
+global $_G;
+$identifier = "dps_exadmincp";
 ?>
