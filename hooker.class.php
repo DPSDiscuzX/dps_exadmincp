@@ -11,4 +11,115 @@ if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
 	exit('Access Denied');
 }
 
+
+class plugin_addbybishop{
+
+
+	function  __construct() {
+
+	}
+	function global_cpnav_top(){
+		global $_G;
+		include template('addbybishop:_tpl_'.__FUNCTION__);
+		return $return;
+	}
+
+	function global_footer(){
+		global $_G;
+		include template('addbybishop:_tpl_'.__FUNCTION__);
+		return $return;
+	}
+
+	function global_header_analytics(){
+		global $_G;
+		$siteurl = $_G['siteurl'];
+		$siteurl = preg_replace("/(http|https)\:\/\//i", '', $siteurl);
+		$siteurl = substr($siteurl, 0, strpos($siteurl, '/'));
+		$siteurl = substr($siteurl, strrpos($siteurl,'.',strrpos($siteurl, '.')-strlen($siteurl)-1));
+		$analytics = (array)dunserialize($_G['setting']['analytics']);
+		include template('addbybishop:_tpl_'.__FUNCTION__);
+		return $return;
+	}
+
+	function global_header_xmlns(){
+		global $_G;
+		$xmlnslist = (array)dunserialize($_G['setting']['xmlns']);
+		include template('addbybishop:_tpl_'.__FUNCTION__);
+		return $return;
+	}
+
+	function global_header_meta(){
+		global $_G;
+		include template('addbybishop:_tpl_'.__FUNCTION__);
+		return $return;
+	}
+
+	function global_footerlink(){
+		global $_G;
+		include template('addbybishop:_tpl_'.__FUNCTION__);
+		return $return;
+	}
+	function global_footer_infomation(){
+		global $_G;
+		include template('addbybishop:_tpl_'.__FUNCTION__);
+		return $return;
+	}
+}
+/*function global_usernav_extra1(){
+	return <<<EOF
+<wb:login-button type="3,2" onlogin="login" onlogout="logout">登录按钮</wb:login-button>
+EOF;
+}*/
+
+class plugin_addbybishop_forum extends plugin_addbybishop{
+	function __construct(){
+		//parent::__construct();
+	}
+	function index_middle(){
+		global $_G;
+		include template('addbybishop:_tpl_'.__FUNCTION__);
+		return $return;
+	}
+	function forumdisplay_fastpost_content(){
+		global $_G;
+		include template('addbybishop:_tpl_'.__FUNCTION__);
+		return $return;
+	}
+	function forumdisplay_threadlist_bottom(){
+		global $_G;
+		include template('addbybishop:_tpl_'.__FUNCTION__);
+		return $return;
+	}
+	function forumdisplay_leftside_bottom(){
+		global $_G;
+		include template('addbybishop:_tpl_'.__FUNCTION__);
+		return $return;
+	}
+	function viewthread_postbutton_top(){
+		global $_G;
+		$return = $this->_postbutton();
+
+		return $return;
+	}
+	function forumdisplay_postbutton_bottom(){
+		global $_G;
+		$return = $this->_postbutton();
+
+		return $return;
+	}
+
+	function _postbutton(){
+		global $_G;
+		$return = '<style type="text/css">#newspecial_menu{width:130px;}</style>';
+		return $return;
+
+	}
+}
+/*
+class plugin_addbybishop_forum extends plugin_addbybishop{
+	function __construct(){
+		parent::__construct();
+	}
+
+}*/
 ?>
