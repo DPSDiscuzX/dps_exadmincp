@@ -19,9 +19,6 @@ $identifier = "dps_exadmincp";
 
 
 
-$msg = '&#20026;&#20102;&#27491;&#24120;&#20351;&#29992;&#27492;&#25554;&#20214;&#65292;&#24744;&#21487;
-&#33021;&#36824;&#38656;&#35201;&#19978;&#20256;&#25110;&#20462;&#25913;&#30456;&#24212;&#30340;&#25991;
-&#20214;&#25110;&#27169;&#26495;&#65292;&#35814;&#24773;&#35831;&#26597;&#30475;&#26412;&#25554;&#20214;&#30340;&#23433;&#35013;&#35828;&#26126;';
 /*检查文件与内容存在与否*/
 function xm_file_content_exists($file, $message) {
 	if(file_exists($file)) {
@@ -53,11 +50,17 @@ function xm_file_replace($file, $pattern, $replace, $hooker, $limit = -1) {
 	return false;
 }
 
+function ht($string){
+	return htmlentities($string, ENT_QUOTES, 'UTF-8');
+};
 
+function dh($string){
+	return dhtmlspecialchars($string);
+};
 
-
-
-
+function he($string){
+	return html_entity_decode($string, ENT_QUOTES, 'UTF-8');
+};
 
 if(!submitcheck('settingsubmit') && !submitcheck('inserthook')) {
 
@@ -113,11 +116,11 @@ EOF;
 			}
 		}
 		if($str==''){
-			$hooker = html_entity_decode($templatehooker['hooker'], ENT_QUOTES, 'UTF-8');
-			$pattern = html_entity_decode($templatehooker['pattern'], ENT_QUOTES, 'UTF-8');
-			$replacement = html_entity_decode($templatehooker['replacement'], ENT_QUOTES, 'UTF-8');
+			$hooker = he($templatehooker['hooker']);
+			$pattern = he($templatehooker['pattern']);
+			$replacement = he($templatehooker['replacement']);
 			$hooker_exist = xm_file_content_exists($file, $hooker);
-			$tpd = htmlentities($templatehooker['templatehookerid'], ENT_QUOTES, 'UTF-8');
+			$tpd = he($templatehooker['templatehookerid']);
 			if($hooker_exist){
 				$str = '<span style="color:#999999;">找到嵌入点</span>';
 			} else {
@@ -168,13 +171,15 @@ EOF;
 	$_CA = C::t('common_setting')->fetch_all(null);
 	$_CA['templatehooker'] = (array)dunserialize($_CA['templatehooker']);
 
-
-
+	//foreach($_CA['templatehooker'] as $id => $value){
+	//	print_r($id.'=>'.$value.'<br />');
+	//}
 
 
 	foreach($_GET['inserthook'] as $inserthook => $value){
 		$templatehooker = $_CA['templatehooker'][$inserthook];
-		//print_r($templatehooker);
+		//print_r('1:'.serialize($_CA['templatehooker'][$inserthook]).'<br />');
+		//print_r('2 :'.$inserthook.';');
 
 		$str = '';
 		$file = DISCUZ_ROOT.$_G['style']['tpldir'].'/'.$templatehooker['file'];
@@ -185,9 +190,9 @@ EOF;
 			}
 		}
 		if($str==''){
-			$hooker = html_entity_decode($templatehooker['hooker'], ENT_QUOTES, 'UTF-8');
-			$pattern = html_entity_decode($templatehooker['pattern'], ENT_QUOTES, 'UTF-8');
-			$replacement = html_entity_decode($templatehooker['replacement'], ENT_QUOTES, 'UTF-8');
+			$hooker = he($templatehooker['hooker']);
+			$pattern = he($templatehooker['pattern']);
+			$replacement = he($templatehooker['replacement']);
 			$hooker_exist = xm_file_content_exists($file, $hooker);
 			if($hooker_exist){
 				$str = '<span style="color:#999999;">找到嵌入点</span>';
@@ -229,14 +234,14 @@ EOF;
 			//print_r($val);
 			//echo intval($templatehookerid == '');
 			$updatearr = array(
-				'templatehookerid' => /*dhtmlspecialchars($_GET['hooker'][$templatehookerid])*/htmlentities($_GET['hooker'][$templatehookerid], ENT_QUOTES, 'UTF-8'),
-				'hooker' => /*dhtmlspecialchars($_GET['hooker'][$templatehookerid])*/htmlentities($_GET['hooker'][$templatehookerid], ENT_QUOTES, 'UTF-8'),
+				'templatehookerid' => /*dhtmlspecialchars($_GET['hooker'][$templatehookerid])*/md5(ht($_GET['hooker'][$templatehookerid])),
+				'hooker' => /*dhtmlspecialchars($_GET['hooker'][$templatehookerid])*/ht($_GET['hooker'][$templatehookerid]),
 				'file' => $_GET['file'][$templatehookerid],
-				'pattern' => /*dhtmlspecialchars($_GET['pattern'][$templatehookerid])*/htmlentities($_GET['pattern'][$templatehookerid], ENT_QUOTES, 'UTF-8'),
-				'replacement' => /*dhtmlspecialchars($_GET['replacement'][$templatehookerid])*/htmlentities($_GET['replacement'][$templatehookerid], ENT_QUOTES, 'UTF-8'),
+				'pattern' => /*dhtmlspecialchars($_GET['pattern'][$templatehookerid])*/ht($_GET['pattern'][$templatehookerid]),
+				'replacement' => /*dhtmlspecialchars($_GET['replacement'][$templatehookerid])*/ht($_GET['replacement'][$templatehookerid]),
 			);
 			//C::t('home_click')->update($id, $updatearr);
-			$settingnew['templatehooker'][htmlentities($templatehookerid, ENT_QUOTES, 'UTF-8')] = $updatearr;
+			$settingnew['templatehooker'][md5(ht($templatehookerid))] = $updatearr;
 		}
 	}
 	if(is_array($_GET['delete'])) {
@@ -254,7 +259,6 @@ EOF;
 			//C::t('home_click')->delete($ids, true);
 		}
 	}
-	//print_r($_GET['newhooker']);
 	if(is_array($_GET['newhooker'])) {
 		foreach($_GET['newhooker'] as $key => $value) {
 			//echo $key;
@@ -262,16 +266,16 @@ EOF;
 			//echo $value;
 			if($value != '' && $_GET['newhooker'][$key] != '') {
 				$data = array(
-					'templatehookerid' => dhtmlspecialchars($_GET['newhooker'][$key]),
-					'hooker' => dhtmlspecialchars($_GET['newhooker'][$key]),
-					'file' => dhtmlspecialchars($_GET['newfile'][$key]),
-					'pattern' => dhtmlspecialchars($_GET['newpattern'][$key]),
-					'replacement' => dhtmlspecialchars($_GET['newreplacement'][$key])
+					'templatehookerid' => md5(dh($_GET['newhooker'][$key])),
+					'hooker' => dh($_GET['newhooker'][$key]),
+					'file' => dh($_GET['newfile'][$key]),
+					'pattern' => dh($_GET['newpattern'][$key]),
+					'replacement' => dh($_GET['newreplacement'][$key])
 				);
 				//C::t('home_click')->insert($data);
 				//print_r( $data);
 				//array_push($templatehooker, $data);
-				$settingnew['templatehooker'][dhtmlspecialchars($_GET['newhooker'][$key])] = $data;
+				$settingnew['templatehooker'][md5(dh($_GET['newhooker'][$key]))] = $data;
 			}
 		}
 	}
