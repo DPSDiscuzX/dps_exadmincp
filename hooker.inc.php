@@ -139,9 +139,11 @@ if(!submitcheck('settingsubmit') && !submitcheck('inserthook')) {
 	} else {
 		echo "找不到";
 	}
-	foreach($_G['cache']['plugin'] as $plugin => $value){
-		echo '$_G[\'cache\'][\'plugin\']:'./*serialize*/($plugin).';<br />';
-	}
+
+
+//	foreach($_G['cache']['plugin'] as $plugin => $value){
+//		echo '$_G[\'cache\'][\'plugin\']:'./*serialize*/($plugin).';<br />';
+//	}
 	showsubmit('settingsubmit', 'submit', 'del');
 
 
