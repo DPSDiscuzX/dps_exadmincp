@@ -53,6 +53,12 @@ function xm_file_replace($file, $pattern, $replace, $hooker, $limit = -1) {
 	return false;
 }
 
+
+
+
+
+
+
 if(!submitcheck('settingsubmit') && !submitcheck('inserthook')) {
 
 
@@ -60,17 +66,13 @@ if(!submitcheck('settingsubmit') && !submitcheck('inserthook')) {
 	$_CA = C::t('common_setting')->fetch_all(null);
 
 
+
+
+	/*显示设置面板头部*/
 	cpheader();
 	showformheader('plugins&operation=config&do='.$pluginid.'&identifier=' . $identifier . '&pmod=hooker');
 	showtableheader('');
-
-
-
-
-
-
 	$tableClasses = array('class="td25"', 'class="td29"', 'class="td29"', 'class="td29"', 'class="td29"', 'class="td31"');
-
 	showtablerow('', $tableClasses, array(
 		'',
 		cplang('嵌入点($hooker)'),
@@ -97,12 +99,14 @@ EOF;
 
 
 	$_CA['templatehooker'] = (array)dunserialize($_CA['templatehooker']);
-	//echo sizeof($_CA['templatehooker']);
+	/*显示已保存的每一条嵌入点插入数据*/
 	foreach($_CA['templatehooker'] as $templatehooker) {
 
 		$str = '';
+		/*判断当前模板*/
 		$file = DISCUZ_ROOT.$_G['style']['tpldir'].'/'.$templatehooker['file'];
 		if(!file_exists($file)){
+			/*查找默认模板*/
 			$file = DISCUZ_ROOT.'./template/default/'.$templatehooker['file'];
 			if(!file_exists($file)){
 				$str = '找不到对应模板文件';
