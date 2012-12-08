@@ -18,13 +18,13 @@ class plugin_dps_exadmincp{
 	}
 	function global_cpnav_top(){
 		global $_G;
-		include template($identifier.':_tpl_'.__FUNCTION__);
+		include template('dps_exadmincp:_tpl_'.__FUNCTION__);
 		return $return;
 	}
 
 	function global_footer(){
 		global $_G;
-		include template($identifier.':_tpl_'.__FUNCTION__);
+		include template('dps_exadmincp:_tpl_'.__FUNCTION__);
 		return $return;
 	}
 
@@ -35,31 +35,31 @@ class plugin_dps_exadmincp{
 		$siteurl = substr($siteurl, 0, strpos($siteurl, '/'));
 		$siteurl = substr($siteurl, strrpos($siteurl,'.',strrpos($siteurl, '.')-strlen($siteurl)-1));
 		$analytics = (array)dunserialize($_G['setting']['analytics']);
-		include template($identifier.':_tpl_'.__FUNCTION__);
+		include template('dps_exadmincp:_tpl_'.__FUNCTION__);
 		return $return;
 	}
 
 	function global_header_xmlns(){
 		global $_G;
 		$xmlnslist = (array)dunserialize($_G['setting']['xmlns']);
-		include template($identifier.':_tpl_'.__FUNCTION__);
+		include template('dps_exadmincp:_tpl_'.__FUNCTION__);
 		return $return;
 	}
 
 	function global_header_meta(){
 		global $_G;
-		include template($identifier.':_tpl_'.__FUNCTION__);
+		include template('dps_exadmincp:_tpl_'.__FUNCTION__);
 		return $return;
 	}
 
 	function global_footerlink(){
 		global $_G;
-		include template($identifier.':_tpl_'.__FUNCTION__);
+		include template('dps_exadmincp:_tpl_'.__FUNCTION__);
 		return $return;
 	}
 	function global_footer_infomation(){
 		global $_G;
-		include template($identifier.':_tpl_'.__FUNCTION__);
+		include template('dps_exadmincp:_tpl_'.__FUNCTION__);
 		return $return;
 	}
 }
@@ -75,22 +75,22 @@ class plugin_dps_exadmincp_forum extends plugin_dps_exadmincp{
 	}
 	function index_middle(){
 		global $_G;
-		include template($identifier.':_tpl_'.__FUNCTION__);
+		include template('dps_exadmincp:_tpl_'.__FUNCTION__);
 		return $return;
 	}
 	function forumdisplay_fastpost_content(){
 		global $_G;
-		include template($identifier.':_tpl_'.__FUNCTION__);
+		include template('dps_exadmincp:_tpl_'.__FUNCTION__);
 		return $return;
 	}
 	function forumdisplay_threadlist_bottom(){
 		global $_G;
-		include template($identifier.':_tpl_'.__FUNCTION__);
+		include template('dps_exadmincp:_tpl_'.__FUNCTION__);
 		return $return;
 	}
 	function forumdisplay_leftside_bottom(){
 		global $_G;
-		include template($identifier.':_tpl_'.__FUNCTION__);
+		include template('dps_exadmincp:_tpl_'.__FUNCTION__);
 		return $return;
 	}
 	function viewthread_postbutton_top(){
