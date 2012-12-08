@@ -19,7 +19,9 @@ _gaq.push(['_setCustomVar', 1
 ,'_G_MEMBER_USERNAME', "{$_G[member][username]}"
 <!--{/if}-->
  ]);
+<!--{if $analytics['_setSiteSpeedSampleRate']}-->
 _gaq.push(['_setSiteSpeedSampleRate', {$analytics['_setSiteSpeedSampleRate']}]);
+<!--{/if}-->
 _gaq.push(['_addOrganic', 'baidu', 'word']);
 _gaq.push(['_addOrganic', 'soso', 'w']);
 _gaq.push(['_addOrganic', '3721', 'name']);
