@@ -8,7 +8,6 @@
         Last Modified: 2012.12.05
 */
 
-$identifier = "dps_exadmincp";
 
 class plugin_dps_exadmincp{
 
