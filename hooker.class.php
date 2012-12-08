@@ -69,7 +69,7 @@ class plugin_dps_exadmincp{
 EOF;
 }*/
 
-class plugin_dps_exadmincp_forum extends plugin_addbybishop{
+class plugin_dps_exadmincp_forum extends plugin_dps_exadmincp{
 	function __construct(){
 		//parent::__construct();
 	}
