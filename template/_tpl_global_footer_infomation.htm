@@ -1,13 +1,13 @@
 <!--{block return}-->
 <div id="ftin" class="cl" style="padding-bottom:0;">
-	<!--{if $_G['setting']['footerright']}-->
+	<!--{if $_G['cache']['plugin']['dps_exadmincp']['running']}-->
 	<div style="float: left; width:480px;text-align: left;">
-		$_G['setting']['footerright']
+		$_G['cache']['plugin']['dps_exadmincp']['running']
 	</div>
 	<!--{/if}-->
-	<!--{if $_G['setting']['footerleft']}-->
-	<div style="float: right; width:580px;text-align: right;">
-		$_G['setting']['footerleft']
+	<!--{if $_G['cache']['plugin']['dps_exadmincp']['contents']}-->
+	<div style="float: right; width:475px;text-align: right;">
+		$_G['cache']['plugin']['dps_exadmincp']['contents']
 	</div>
 	<!--{/if}-->
 </div>

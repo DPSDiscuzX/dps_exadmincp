@@ -7,9 +7,7 @@
         Copyright: For author
         Last Modified: 2012.12.05
 */
-if(!defined('IN_DISCUZ') || !defined('IN_ADMINCP')) {
-	exit('Access Denied');
-}
+
 
 
 class plugin_addbybishop{
