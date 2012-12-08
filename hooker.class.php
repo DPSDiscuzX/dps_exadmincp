@@ -1,6 +1,6 @@
 <?php
 /*
-        [DISCUZ!] addbybishop/hooker.class.php - 文件作用描述
+        [DISCUZ!] dps_exadmincp/hooker.class.php - 文件作用描述
 
         Version: 0.01
         Author: Bovvic(671064591@qq.com)
@@ -8,9 +8,9 @@
         Last Modified: 2012.12.05
 */
 
+$identifier = "dps_exadmincp";
 
-
-class plugin_addbybishop{
+class plugin_dps_exadmincp{
 
 
 	function  __construct() {
@@ -18,13 +18,13 @@ class plugin_addbybishop{
 	}
 	function global_cpnav_top(){
 		global $_G;
-		include template('addbybishop:_tpl_'.__FUNCTION__);
+		include template($identifier.':_tpl_'.__FUNCTION__);
 		return $return;
 	}
 
 	function global_footer(){
 		global $_G;
-		include template('addbybishop:_tpl_'.__FUNCTION__);
+		include template($identifier.':_tpl_'.__FUNCTION__);
 		return $return;
 	}
 
@@ -35,31 +35,31 @@ class plugin_addbybishop{
 		$siteurl = substr($siteurl, 0, strpos($siteurl, '/'));
 		$siteurl = substr($siteurl, strrpos($siteurl,'.',strrpos($siteurl, '.')-strlen($siteurl)-1));
 		$analytics = (array)dunserialize($_G['setting']['analytics']);
-		include template('addbybishop:_tpl_'.__FUNCTION__);
+		include template($identifier.':_tpl_'.__FUNCTION__);
 		return $return;
 	}
 
 	function global_header_xmlns(){
 		global $_G;
 		$xmlnslist = (array)dunserialize($_G['setting']['xmlns']);
-		include template('addbybishop:_tpl_'.__FUNCTION__);
+		include template($identifier.':_tpl_'.__FUNCTION__);
 		return $return;
 	}
 
 	function global_header_meta(){
 		global $_G;
-		include template('addbybishop:_tpl_'.__FUNCTION__);
+		include template($identifier.':_tpl_'.__FUNCTION__);
 		return $return;
 	}
 
 	function global_footerlink(){
 		global $_G;
-		include template('addbybishop:_tpl_'.__FUNCTION__);
+		include template($identifier.':_tpl_'.__FUNCTION__);
 		return $return;
 	}
 	function global_footer_infomation(){
 		global $_G;
-		include template('addbybishop:_tpl_'.__FUNCTION__);
+		include template($identifier.':_tpl_'.__FUNCTION__);
 		return $return;
 	}
 }
@@ -69,28 +69,28 @@ class plugin_addbybishop{
 EOF;
 }*/
 
-class plugin_addbybishop_forum extends plugin_addbybishop{
+class plugin_dps_exadmincp_forum extends plugin_addbybishop{
 	function __construct(){
 		//parent::__construct();
 	}
 	function index_middle(){
 		global $_G;
-		include template('addbybishop:_tpl_'.__FUNCTION__);
+		include template($identifier.':_tpl_'.__FUNCTION__);
 		return $return;
 	}
 	function forumdisplay_fastpost_content(){
 		global $_G;
-		include template('addbybishop:_tpl_'.__FUNCTION__);
+		include template($identifier.':_tpl_'.__FUNCTION__);
 		return $return;
 	}
 	function forumdisplay_threadlist_bottom(){
 		global $_G;
-		include template('addbybishop:_tpl_'.__FUNCTION__);
+		include template($identifier.':_tpl_'.__FUNCTION__);
 		return $return;
 	}
 	function forumdisplay_leftside_bottom(){
 		global $_G;
-		include template('addbybishop:_tpl_'.__FUNCTION__);
+		include template($identifier.':_tpl_'.__FUNCTION__);
 		return $return;
 	}
 	function viewthread_postbutton_top(){
