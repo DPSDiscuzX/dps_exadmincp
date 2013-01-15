@@ -9,18 +9,19 @@ global $_G;
 $identifier = "dps_exadmincp";
 cpheader();
 
-if(true){
+if(!submitcheck('settingsubmit') && !submitcheck('inserthook')){
 
+	$_CA = C::t('common_setting')->fetch_all(null);
 	showformheader('plugins&operation=config&do='.$pluginid.'&identifier=' . $identifier . '&pmod=xmlns');
 	showtableheader('');
 	showtablerow('', array('class="td25"', 'class="td28"', 'class="td25"', 'class="td25"', '', '', '', 'class="td23"', 'class="td25"'), array(
 		'',
 		cplang('display_order'),
-		'',
 		cplang('available'),
 		cplang('前缀'),
 		cplang('引用'),
 		cplang('(预留位置)'),
+		'',
 	));
 	print "
 <script type=\"text/JavaScript\">
@@ -28,11 +29,11 @@ if(true){
 		[
 			[1,'', 'td25'],
 			[1,'<input type=\"text\" class=\"txt\" name=\"newdisplayorder[]\" size=\"3\">', 'td28'],
-			[1,'', 'td25'],
 			[1,'<input type=\"checkbox\" name=\"newavailable[]\" value=\"1\">', 'td25'],
 			[1,'xmlns:<input type=\"text\" class=\"txt\" name=\"newprefix[]\" size=\"10\">='],
 			[1,'\"<input type=\"text\" class=\"txt\" name=\"newhref[]\" size=\"20\">\"'],
-			[1,'', 'td23']
+			[1,'', 'td23'],
+			[1,'', 'td25']
 		]
 	];
 </script>"
