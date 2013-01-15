@@ -14,14 +14,13 @@ if(!submitcheck('settingsubmit') && !submitcheck('inserthook')){
 	$_CA = C::t('common_setting')->fetch_all(null);
 	showformheader('plugins&operation=config&do='.$pluginid.'&identifier=' . $identifier . '&pmod=xmlns');
 	showtableheader('');
-	showtablerow('', array('class="td25"', 'class="td28"', 'class="td25"', 'class="td25"', '', '', '', 'class="td23"', 'class="td25"'), array(
+	$tableClasses = array('class="td25"', 'class="td28"', 'class="td25"', 'class="td31"', 'class="td29"');
+	showtablerow('', $tableClasses, array(
 		'',
 		cplang('display_order'),
 		cplang('available'),
 		cplang('前缀'),
 		cplang('引用'),
-		cplang('(预留位置)'),
-		'',
 	));
 	print "
 <script type=\"text/JavaScript\">
@@ -30,10 +29,8 @@ if(!submitcheck('settingsubmit') && !submitcheck('inserthook')){
 			[1,'', 'td25'],
 			[1,'<input type=\"text\" class=\"txt\" name=\"newdisplayorder[]\" size=\"3\">', 'td28'],
 			[1,'<input type=\"checkbox\" name=\"newavailable[]\" value=\"1\">', 'td25'],
-			[1,'xmlns:<input type=\"text\" class=\"txt\" name=\"newprefix[]\" size=\"10\">='],
-			[1,'\"<input type=\"text\" class=\"txt\" name=\"newhref[]\" size=\"20\">\"'],
-			[1,'', 'td23'],
-			[1,'', 'td25']
+			[1,'xmlns:<input type=\"text\" class=\"txt\" name=\"newprefix[]\" size=\"10\">=', 'td31'],
+			[1,'\"<input type=\"text\" class=\"txt\" name=\"newhref[]\" size=\"20\">\"', 'td29']
 		]
 	];
 </script>"
@@ -46,15 +43,12 @@ if(!submitcheck('settingsubmit') && !submitcheck('inserthook')){
 		if(!$xmlns['prefix'] == ''){
 			$checkavailable = $xmlns['available'] ? 'checked' : '';
 			$xmlns['idtype'] = cplang('click_edit_'.$xmlns['idtype']);
-			showtablerow('', array('class="td25"', 'class="td28"', 'class="td25"', 'class="td25"', '', '', '', 'class="td23"', 'class="td25"'), array(
+			showtablerow('', $tableClasses, array(
 				"<input class=\"checkbox\" type=\"checkbox\" name=\"delete[]\" value=\"$xmlns[xmlnsid]\">",
 				"<input type=\"text\" class=\"txt\" size=\"3\" name=\"displayorder[$xmlns[xmlnsid]]\" value=\"$xmlns[displayorder]\">",
-				//	"<img src=\"static/image/click/$xmlns[icon]\">",
-				"&nbsp;",
 				"<input class=\"checkbox\" type=\"checkbox\" name=\"available[$xmlns[xmlnsid]]\" value=\"1\" $checkavailable>",
 				"xmlns:<input type=\"text\" class=\"txt\" size=\"10\" name=\"prefix[$xmlns[xmlnsid]]\" value=\"$xmlns[prefix]\">=",
 				"\"<input type=\"text\" class=\"txt\" size=\"20\" name=\"href[$xmlns[xmlnsid]]\" value=\"$xmlns[href]\">\"",
-				$xmlns['idtype']
 			));
 		}
 	}
