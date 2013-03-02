@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<item id="Title"><![CDATA[Discuz! Plugin]]></item>
+	<item id="Version"><![CDATA[X2.5]]></item>
+	<item id="Time"><![CDATA[2013-01-15 18:38]]></item>
+	<item id="From"><![CDATA[写意人生 Make It Count (http://makeitcount.cn/bbs/)]]></item>
+	<item id="Data">
+		<item id="plugin">
+			<item id="available"><![CDATA[1]]></item>
+			<item id="adminid"><![CDATA[0]]></item>
+			<item id="name"><![CDATA[扩展管理面板]]></item>
+			<item id="identifier"><![CDATA[dps_exadmincp]]></item>
+			<item id="description"><![CDATA[将一些常用管理功能添加到后台管理]]></item>
+			<item id="datatables"><![CDATA[]]></item>
+			<item id="directory"><![CDATA[dps_exadmincp/]]></item>
+			<item id="copyright"><![CDATA[Powered by Bovvic(671064591)]]></item>
+			<item id="version"><![CDATA[0.01]]></item>
+			<item id="__modules">
+				<item id="0">
+					<item id="name"><![CDATA[xmlns]]></item>
+					<item id="menu"><![CDATA[命名空间]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[3]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+				<item id="1">
+					<item id="name"><![CDATA[hooker]]></item>
+					<item id="menu"><![CDATA[]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[11]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+				<item id="2">
+					<item id="name"><![CDATA[hooker]]></item>
+					<item id="menu"><![CDATA[嵌入点/修改点检查]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[3]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+				<item id="3">
+					<item id="name"><![CDATA[analytics]]></item>
+					<item id="menu"><![CDATA[Google Analytics]]></item>
+					<item id="url"><![CDATA[]]></item>
+					<item id="type"><![CDATA[3]]></item>
+					<item id="adminid"><![CDATA[0]]></item>
+					<item id="displayorder"><![CDATA[0]]></item>
+					<item id="navtitle"><![CDATA[]]></item>
+					<item id="navicon"><![CDATA[]]></item>
+					<item id="navsubname"><![CDATA[]]></item>
+					<item id="navsuburl"><![CDATA[]]></item>
+				</item>
+			</item>
+		</item>
+		<item id="version"><![CDATA[X2.5]]></item>
+		<item id="var">
+			<item id="0">
+				<item id="displayorder"><![CDATA[0]]></item>
+				<item id="title"><![CDATA[全局页脚声明信息]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[statement]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="1">
+				<item id="displayorder"><![CDATA[0]]></item>
+				<item id="title"><![CDATA[全局页脚运行信息]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[running]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[<br />
+<div id="aboutbrowsers" class="cl">
+<a href="" style="background:url(./addon/image/browser/iexplore78s.png);"></a>
+<a href="" style="background:url(./addon/image/browser/iexplore910s.png);"></a>
+<a href="" style="background:url(./addon/image/browser/chromes.png);"></a>
+<a href="" style="background:url(./addon/image/browser/firefoxs.png);"></a>
+<a href="" style="background:url(./addon/image/browser/safaris.png);"></a>
+<a href="" style="background:url(./addon/image/browser/operas.png);"></a>
+<a href="" style="background:url(./addon/image/browser/taobrowsers.png);"></a>
+<a href="" style="background:url(./addon/image/browser/360ses.png);"></a>
+<a href="" style="background:url(./addon/image/browser/sogouexplorers.png);"></a>
+</div>
+<style>
+#aboutbrowsers a{display:block;width:16px;height:16px;float:left;margin-right:4px;}
+</style>]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+			<item id="2">
+				<item id="displayorder"><![CDATA[0]]></item>
+				<item id="title"><![CDATA[全局页脚内容信息]]></item>
+				<item id="description"><![CDATA[]]></item>
+				<item id="variable"><![CDATA[contents]]></item>
+				<item id="type"><![CDATA[textarea]]></item>
+				<item id="value"><![CDATA[网站的建设完善有赖您的一份力量，若您在使用过程中遇到任何功能异常、排版错误等，烦请向我们反馈<br />
+我们热情恭候您对我们的意见或建议、电光火石间的任何好想法、好构思]]></item>
+				<item id="extra"><![CDATA[]]></item>
+			</item>
+		</item>
+	</item>
+</root>
