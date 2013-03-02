@@ -7,7 +7,11 @@ var pluginUrl = (('https:' == document.location.protocol) ? 'https://ssl.' : 'ht
 + 'google-analytics.com/plugins/ga/inpage_linkid.js';
 _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
 _gaq.push(['_setAccount', "{$analytics['_setAccount']}"]);
+<<<<<<< HEAD
 _gaq.push(['_setDomainName', cookiedomain]);
+=======
+_gaq.push(['_setDomainName', "{$siteurl}"]);
+>>>>>>> f3899cfdd55040e6a08ff7ec95b2cee9ad310fb5
 _gaq.push(['_setCustomVar', 1
 <!--{if $_G['uid']}-->
 ,'uid', "{$_G['uid']}"

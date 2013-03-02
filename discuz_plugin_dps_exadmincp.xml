@@ -13,7 +13,11 @@
 			<item id="description"><![CDATA[将一些常用管理功能添加到后台管理]]></item>
 			<item id="datatables"><![CDATA[]]></item>
 			<item id="directory"><![CDATA[dps_exadmincp/]]></item>
+<<<<<<< HEAD
 			<item id="copyright"><![CDATA[Powered by Bovvic(671064591)]]></item>
+=======
+			<item id="copyright"><![CDATA[Powered by Bovvi(671064591)]]></item>
+>>>>>>> f3899cfdd55040e6a08ff7ec95b2cee9ad310fb5
 			<item id="version"><![CDATA[0.01]]></item>
 			<item id="__modules">
 				<item id="0">
