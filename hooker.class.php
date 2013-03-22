@@ -27,30 +27,6 @@ class plugin_dps_exadmincp{
 		return $return;
 	}
 
-	function global_header_analytics(){
-		global $_G;
-		$siteurl = $_G['siteurl'];
-		$siteurl = preg_replace("/(http|https)\:\/\//i", '', $siteurl);
-		$siteurl = substr($siteurl, 0, strpos($siteurl, '/'));
-		$siteurl = substr($siteurl, strrpos($siteurl,'.',strrpos($siteurl, '.')-strlen($siteurl)-1));
-		$analytics = (array)dunserialize($_G['setting']['analytics']);
-		include template('dps_exadmincp:_tpl_'.__FUNCTION__);
-		return $return;
-	}
-
-	function global_header_xmlns(){
-		global $_G;
-		$xmlnslist = (array)dunserialize($_G['setting']['xmlns']);
-		include template('dps_exadmincp:_tpl_'.__FUNCTION__);
-		return $return;
-	}
-
-	function global_header_meta(){
-		global $_G;
-		include template('dps_exadmincp:_tpl_'.__FUNCTION__);
-		return $return;
-	}
-
 	function global_footerlink(){
 		global $_G;
 		include template('dps_exadmincp:_tpl_'.__FUNCTION__);
