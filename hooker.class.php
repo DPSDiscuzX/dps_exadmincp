@@ -83,7 +83,7 @@ class plugin_dps_exadmincp_forum extends plugin_dps_exadmincp{
 
 	function _postbutton(){
 		global $_G;
-		$return = '<style type="text/css">#newspecial_menu{width:130px;}</style>';
+		$return = '';
 		return $return;
 
 	}
